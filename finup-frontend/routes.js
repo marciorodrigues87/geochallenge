@@ -34,10 +34,16 @@ app.post('/v1/signups', function(req, res) {
 
 app.post('/v1/surveys', function(req, res) {
 
-	console.log(req.body);
-	// JAVAAAAA
-	res.status(200).send("OK");
+	console.log(sprintf('receiving survey %s', req.body.key));
 
+	backend.survey(req.body, function(error, response, body) {
+  		if (error) {
+  			console.log(sprintf('error calling backend for survey %s', error))
+  			res.status(500).send(error.code);
+  		} else {
+			res.status(response.statusCode).send(body);
+  		}
+  	});
 });
 
 // start app

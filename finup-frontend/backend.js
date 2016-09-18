@@ -19,3 +19,14 @@ exports.signup = function(email, callback) {
   	}
   }, callback);
 };
+
+exports.survey = function(json, callback) {
+  request.post({
+    url: sprintf('%s/v1/surveys', backend_url),
+    method: 'POST',
+    headers: {
+      'ContentType' : 'application/json'
+    },
+    json: json
+  }, callback);
+};

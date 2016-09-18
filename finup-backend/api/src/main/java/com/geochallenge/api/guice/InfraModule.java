@@ -23,7 +23,9 @@ import org.mongodb.morphia.Datastore;
 
 import com.geochallenge.api.config.Config;
 import com.geochallenge.infra.dao.SubscriptionDAO;
+import com.geochallenge.infra.dao.SurveyDAO;
 import com.geochallenge.infra.dao.impl.SubscriptionDAOMongoDBImpl;
+import com.geochallenge.infra.dao.impl.SurveyDAOMongoDBImpl;
 import com.geochallenge.infra.template.TemplateEngine;
 import com.geochallenge.infra.template.impl.MustacheImpl;
 import com.geochallenge.queue.consumer.SubscriptionConsumer;
@@ -56,6 +58,7 @@ public class InfraModule extends AbstractModule {
 		// mongodb
 		bind(Datastore.class).toInstance(mongoDBDatastore());
 		bind(SubscriptionDAO.class).to(SubscriptionDAOMongoDBImpl.class);
+		bind(SurveyDAO.class).to(SurveyDAOMongoDBImpl.class);
 
 		// json
 		bind(JsonProvider.class).to(Jackson.class);

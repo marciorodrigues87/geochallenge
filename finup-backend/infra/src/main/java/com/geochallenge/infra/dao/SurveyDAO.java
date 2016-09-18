@@ -4,6 +4,6 @@ import com.geochallenge.domain.Survey;
 
 public interface SurveyDAO {
 
-	void add(Survey survey);
+	String add(Survey survey);
 
 }
