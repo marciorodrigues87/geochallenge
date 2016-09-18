@@ -1,0 +1,19 @@
+version: "2"
+
+services:
+  backend:
+    build: ./finup-backend
+    ports: 
+      - "8080:8080"
+    links:
+      - db:db
+      - broker:broker
+  db:
+   image: mongo:latest
+   ports:
+      - "27017:27017"
+  broker:
+   image: rabbitmq:3.6.5-management
+   ports:
+      - "5672:5672"
+      - "15672:15672"

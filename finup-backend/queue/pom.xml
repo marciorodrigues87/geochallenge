@@ -1,0 +1,31 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.geochallenge</groupId>
+		<artifactId>finup-backend</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>queue</artifactId>
+	<dependencies>
+		<dependency>
+			<groupId>com.geochallenge</groupId>
+			<artifactId>utils</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.geochallenge</groupId>
+			<artifactId>domain</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.geochallenge</groupId>
+			<artifactId>core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.perf4j</groupId>
+			<artifactId>perf4j</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.geochallenge</groupId>
+			<artifactId>integration-tests</artifactId>
+		</dependency>
+	</dependencies>
+</project>
