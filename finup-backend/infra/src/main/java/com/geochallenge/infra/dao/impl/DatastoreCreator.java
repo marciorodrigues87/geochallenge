@@ -1,4 +1,4 @@
-package com.geochallenge.utils.mongodb;
+package com.geochallenge.infra.dao.impl;
 
 import org.mongodb.morphia.Datastore;
 import org.mongodb.morphia.Morphia;

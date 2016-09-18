@@ -10,8 +10,8 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import javax.inject.Singleton;
 
+import com.geochallenge.infra.messaging.impl.RabbitMQMessageListener;
 import com.geochallenge.queue.consumer.SubscriptionConsumer;
-import com.geochallenge.utils.messaging.impl.RabbitMQMessageListener;
 import com.rabbitmq.client.Connection;
 
 @Singleton

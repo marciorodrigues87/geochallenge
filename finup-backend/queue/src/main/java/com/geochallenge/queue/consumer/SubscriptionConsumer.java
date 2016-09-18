@@ -5,10 +5,9 @@ import javax.inject.Singleton;
 
 import com.geochallenge.core.business.SubscriptionMessageContent;
 import com.geochallenge.core.facade.MailingFacade;
+import com.geochallenge.infra.messaging.impl.JsonMessageConsumer;
 import com.geochallenge.queue.converter.SubscriptionConverter;
-import com.geochallenge.queue.interceptor.Logged;
 import com.geochallenge.utils.json.JsonProvider;
-import com.geochallenge.utils.messaging.impl.JsonMessageConsumer;
 
 @Singleton
 public class SubscriptionConsumer extends JsonMessageConsumer<SubscriptionMessageContent> {
@@ -21,12 +20,6 @@ public class SubscriptionConsumer extends JsonMessageConsumer<SubscriptionMessag
 		super(json, SubscriptionMessageContent.class);
 		this.facade = facade;
 		this.converter = converter;
-	}
-
-	@Logged
-	@Override
-	public void consume(byte[] message) {
-		super.consume(message);
 	}
 
 	@Override

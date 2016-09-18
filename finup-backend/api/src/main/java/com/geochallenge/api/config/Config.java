@@ -10,7 +10,7 @@ public enum Config {
 	
 	BROKER_HOST("geochallenge.broker.host", "broker"),
 	SUBSCRIPTIONS_EXCHANGE("geochallenge.broker.exchange.subscription.name", "subscriptions"),
-	SUBSCRIPTIONS_EXCHANGE_TYPE("geochallenge.broker.exchange.subscription.type", "fanout"),
+	SUBSCRIPTIONS_EXCHANGE_TYPE("geochallenge.broker.exchange.subscription.type", "topic"),
 	SUBSCRIPTIONS_CONSUMER_THREADS("geochallenge.broker.queue.subscription.threads", "10"),
 	SUBSCRIPTIONS_CONSUMER_QUEUE("geochallenge.broker.queue.subscription.name", "subscriptions.queue"),
 	SUBSCRIPTIONS_CONSUMER_ROUTING_KEY("geochallenge.broker.queue.subscription.routingKey", "all"),

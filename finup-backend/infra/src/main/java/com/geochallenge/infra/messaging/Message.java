@@ -1,4 +1,4 @@
-package com.geochallenge.utils.messaging;
+package com.geochallenge.infra.messaging;
 
 public class Message {
 
@@ -12,8 +12,8 @@ public class Message {
 		this.routingKey = routingKey;
 	}
 
-	public static Message fanout(Object content, String exchange) {
-		return new Message(content, exchange, "");
+	public static Message topic(Object content, String exchange, String routingKey) {
+		return new Message(content, exchange, routingKey);
 	}
 
 	public Object getContent() {

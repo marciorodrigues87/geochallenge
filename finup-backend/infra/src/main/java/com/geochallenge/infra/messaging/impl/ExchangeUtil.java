@@ -1,12 +1,12 @@
-package com.geochallenge.utils.messaging.impl;
+package com.geochallenge.infra.messaging.impl;
 
-import static com.geochallenge.utils.messaging.impl.ChannelUtil.closeQuietly;
+import static com.geochallenge.infra.messaging.impl.ChannelUtil.closeQuietly;
 
-import com.geochallenge.utils.messaging.Exchange;
+import com.geochallenge.infra.messaging.Exchange;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 
-public final class RabbitMQExchangeDeclarer {
+public final class ExchangeUtil {
 
 	public static void declare(Connection connection, Exchange... exchanges) {
 		Channel channel = null;

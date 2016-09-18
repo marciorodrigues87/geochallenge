@@ -1,4 +1,4 @@
-package com.geochallenge.utils.mailing.impl;
+package com.geochallenge.infra.mailing.impl;
 
 import static com.geochallenge.utils.NamedInjections.SMTP_HOST;
 import static com.geochallenge.utils.NamedInjections.SMTP_PASSWORD;
@@ -19,8 +19,8 @@ import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
-import com.geochallenge.utils.mailing.Email;
-import com.geochallenge.utils.mailing.Mailer;
+import com.geochallenge.infra.mailing.Email;
+import com.geochallenge.infra.mailing.Mailer;
 
 @Singleton
 public class JavaMailSMTPMailer implements Mailer {

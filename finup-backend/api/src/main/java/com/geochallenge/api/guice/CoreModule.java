@@ -1,8 +1,9 @@
 package com.geochallenge.api.guice;
 
 import com.geochallenge.core.business.SubscriptionAssembler;
-import com.geochallenge.core.business.SubscriptionEmailAssembler;
+import com.geochallenge.core.business.SurveyEmailAssembler;
 import com.geochallenge.core.business.SubscriptionNotifier;
+import com.geochallenge.core.business.SubscriptionSaver;
 import com.geochallenge.core.facade.MailingFacade;
 import com.geochallenge.core.facade.SignupFacade;
 import com.geochallenge.core.facade.SurveyFacade;
@@ -21,9 +22,10 @@ public class CoreModule extends AbstractModule {
 		bind(SurveyFacade.class).to(SurveyFacadeImpl.class);
 
 		// business
+		bind(SubscriptionSaver.class);
 		bind(SubscriptionAssembler.class);
 		bind(SubscriptionNotifier.class);
-		bind(SubscriptionEmailAssembler.class);
+		bind(SurveyEmailAssembler.class);
 	}
 
 }

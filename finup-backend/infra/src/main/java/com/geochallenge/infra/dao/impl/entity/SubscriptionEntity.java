@@ -20,6 +20,9 @@ public class SubscriptionEntity {
 		this.email = subscription.getEmail();
 	}
 
+	public SubscriptionEntity() {
+	}
+
 	public String getKey() {
 		return key;
 	}

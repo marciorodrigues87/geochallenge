@@ -26,4 +26,17 @@ public class SubscriptionDAOMongoDBImpl implements SubscriptionDAO {
 		return entity.getKey();
 	}
 
+	@Override
+	public Subscription find(String email) {
+		final SubscriptionEntity entity = findBy("email", email);
+		if (entity == null) {
+			return null;
+		}
+		return Subscription.complete(entity.getKey(), entity.getEmail());
+	}
+
+	private SubscriptionEntity findBy(String field, String value) {
+		return datastore.createQuery(SubscriptionEntity.class).field(field).equalIgnoreCase(value).get();
+	}
+
 }

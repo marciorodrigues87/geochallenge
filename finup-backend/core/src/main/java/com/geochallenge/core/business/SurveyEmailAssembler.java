@@ -13,18 +13,18 @@ import javax.inject.Named;
 import javax.inject.Singleton;
 
 import com.geochallenge.domain.Subscription;
+import com.geochallenge.infra.mailing.Email;
 import com.geochallenge.infra.template.TemplateEngine;
-import com.geochallenge.utils.mailing.Email;
 
 @Singleton
-public class SubscriptionEmailAssembler {
+public class SurveyEmailAssembler {
 
 	private final TemplateEngine template;
 	private final String surveyUrl;
 	private final String subject;
 
 	@Inject
-	public SubscriptionEmailAssembler(TemplateEngine template,
+	public SurveyEmailAssembler(TemplateEngine template,
 			@Named(SURVEY_URL) String surveyUrl,
 			@Named(SURVEY_SUBJECT) String subject) {
 		this.template = template;

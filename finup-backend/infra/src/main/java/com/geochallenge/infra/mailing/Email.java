@@ -1,4 +1,4 @@
-package com.geochallenge.utils.mailing;
+package com.geochallenge.infra.mailing;
 
 public class Email {
 

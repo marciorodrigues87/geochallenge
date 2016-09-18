@@ -1,4 +1,4 @@
-package com.geochallenge.utils.messaging;
+package com.geochallenge.infra.messaging;
 
 public interface MessageSender {
 

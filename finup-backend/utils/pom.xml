@@ -24,34 +24,6 @@
 			<groupId>com.geochallenge</groupId>
 			<artifactId>integration-tests</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>org.mongodb.morphia</groupId>
-			<artifactId>morphia</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.rabbitmq</groupId>
-			<artifactId>amqp-client</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-api</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>ch.qos.logback</groupId>
-			<artifactId>logback-classic</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>ch.qos.logback</groupId>
-			<artifactId>logback-core</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>javax.mail</groupId>
-			<artifactId>javax.mail-api</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.sun.mail</groupId>
-			<artifactId>javax.mail</artifactId>
-		</dependency>
 	</dependencies>
 
 </project>

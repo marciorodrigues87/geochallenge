@@ -1,4 +1,4 @@
-package com.geochallenge.utils.messaging.impl;
+package com.geochallenge.infra.messaging.impl;
 
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;

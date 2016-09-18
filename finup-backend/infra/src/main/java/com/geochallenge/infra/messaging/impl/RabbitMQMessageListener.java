@@ -1,6 +1,6 @@
-package com.geochallenge.utils.messaging.impl;
+package com.geochallenge.infra.messaging.impl;
 
-import static com.geochallenge.utils.messaging.impl.ChannelUtil.closeQuietly;
+import static com.geochallenge.infra.messaging.impl.ChannelUtil.closeQuietly;
 import static java.util.concurrent.Executors.newFixedThreadPool;
 import static java.util.concurrent.TimeUnit.SECONDS;
 
@@ -14,7 +14,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.geochallenge.utils.messaging.MessageConsumer;
+import com.geochallenge.infra.messaging.MessageConsumer;
 import com.rabbitmq.client.AMQP.BasicProperties;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
@@ -101,7 +101,7 @@ public class RabbitMQMessageListener {
 	}
 
 	private void declareDelayQueue() {
-		if (delayQueueName != null) {
+		if (delayQueueName == null) {
 			return;
 		}
 		Channel channel = null;
@@ -168,7 +168,8 @@ public class RabbitMQMessageListener {
 				body = delivery.getBody();
 				consumer.consume(body);
 				ack(envelope, ch);
-			} catch (Exception t) {
+			} catch (Exception e) {
+				log.error("error consuming message {}", e.getMessage());
 				nack(envelope, ch);
 				delayMessage(ch, headers(delivery.getProperties()), body);
 			}
@@ -186,7 +187,7 @@ public class RabbitMQMessageListener {
 				}
 				try {
 					final BasicProperties props = new BasicProperties.Builder().headers(headers).build();
-					channel.basicPublish(exchange, routingKey, props, body);
+					channel.basicPublish(exchange, delayQueueName, props, body);
 				} catch (IOException e) {
 					throw new RuntimeException(e);
 				}

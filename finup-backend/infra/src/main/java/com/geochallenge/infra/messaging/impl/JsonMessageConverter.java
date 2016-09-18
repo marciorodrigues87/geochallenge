@@ -1,10 +1,10 @@
-package com.geochallenge.utils.messaging.impl;
+package com.geochallenge.infra.messaging.impl;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
+import com.geochallenge.infra.messaging.MessageConverter;
 import com.geochallenge.utils.json.JsonProvider;
-import com.geochallenge.utils.messaging.MessageConverter;
 
 @Singleton
 public class JsonMessageConverter implements MessageConverter {

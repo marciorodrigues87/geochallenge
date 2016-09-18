@@ -1,4 +1,4 @@
-package com.geochallenge.queue.interceptor;
+package com.geochallenge.infra.messaging.interceptor;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

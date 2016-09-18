@@ -1,6 +1,6 @@
-package com.geochallenge.utils.messaging.impl;
+package com.geochallenge.infra.messaging.impl;
 
-import static com.geochallenge.utils.messaging.impl.ChannelUtil.closeQuietly;
+import static com.geochallenge.infra.messaging.impl.ChannelUtil.closeQuietly;
 import static java.text.MessageFormat.format;
 
 import java.io.IOException;
@@ -8,9 +8,9 @@ import java.io.IOException;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
-import com.geochallenge.utils.messaging.Message;
-import com.geochallenge.utils.messaging.MessageConverter;
-import com.geochallenge.utils.messaging.MessageSender;
+import com.geochallenge.infra.messaging.Message;
+import com.geochallenge.infra.messaging.MessageConverter;
+import com.geochallenge.infra.messaging.MessageSender;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 

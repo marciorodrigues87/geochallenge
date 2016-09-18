@@ -1,7 +1,8 @@
-package com.geochallenge.utils.messaging.impl;
+package com.geochallenge.infra.messaging.impl;
 
+import com.geochallenge.infra.messaging.MessageConsumer;
+import com.geochallenge.infra.messaging.interceptor.Logged;
 import com.geochallenge.utils.json.JsonProvider;
-import com.geochallenge.utils.messaging.MessageConsumer;
 
 public abstract class JsonMessageConsumer<T> implements MessageConsumer {
 
@@ -13,6 +14,7 @@ public abstract class JsonMessageConsumer<T> implements MessageConsumer {
 		this.clazz = clazz;
 	}
 
+	@Logged
 	@Override
 	public void consume(byte[] message) {
 		consume(json.from(message, clazz));
