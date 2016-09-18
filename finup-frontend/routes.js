@@ -6,11 +6,11 @@ var morgan = require('morgan');
 var body_parser = require('body-parser');
 var method_override = require('method-override');
 var sprintf = require("sprintf-js").sprintf
-var request = require('request');
+var backend = require('./backend.js');
 
 // init express
 var app = express();
-var port = process.env.PORT || 8000;
+var port = process.env.PORT || 8081;
 app.use(express.static(__dirname + '/public'));
 app.use(morgan('dev'));
 app.use(body_parser.urlencoded({'extended':'true'}));
@@ -20,10 +20,16 @@ app.use(method_override());
 // routes
 app.post('/v1/signups', function(req, res) {
 
-	console.log(req.body);
-	// JAVAAAAA
-	res.status(200).send("OK");
+	console.log(sprintf('receiving signup %s', req.body.email));
 
+	backend.signup(req.body.email, function(error, response, body) {
+  		if (error) {
+  			console.log(sprintf('error calling backend for signup %s', error))
+  			res.status(500).send(error.code);
+  		} else {
+			res.status(response.statusCode).send(body);
+  		}
+  	});
 });
 
 app.post('/v1/surveys', function(req, res) {
@@ -35,4 +41,4 @@ app.post('/v1/surveys', function(req, res) {
 });
 
 // start app
-app.listen(8080);
+app.listen(port);
