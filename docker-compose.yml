@@ -7,6 +7,7 @@ services:
       - "8081:8081"
     links:
       - backend:backend
+      - log:log
   backend:
     build: ./finup-backend
     ports: 
@@ -14,6 +15,7 @@ services:
     links:
       - db:db
       - broker:broker
+      - log:log
     environment:
       - geochallenge.survey.url=http://${DOCKER_MACHINE_IP}:8081/survey.html?key=%s
   db:
@@ -25,3 +27,12 @@ services:
    ports:
       - "5672:5672"
       - "15672:15672"
+  log:
+   image: pblittle/docker-logstash
+   ports:
+      - "9292:9292"
+      - "9200:9200"
+      - "9998:9998"
+      - "9999:9999/udp"
+   volumes:
+      - ./log/logstash-embedded.conf:/opt/logstash/conf.d/logstash-embedded.conf

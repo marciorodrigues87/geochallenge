@@ -2,11 +2,13 @@
 
 var app = require('./routes');
 
+var logger = require('log4js').getLogger('default');
+
 process.on('SIGTERM', function() {
-        console.log("exiting...");
+        logger.info("exiting...");
         process.exit(0);
 
 }).on('SIGINT', function() {
-        console.log("exiting...");
+        logger.info("exiting...");
         process.exit(0);
 });
