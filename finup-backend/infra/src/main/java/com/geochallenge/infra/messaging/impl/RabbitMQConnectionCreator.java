@@ -11,6 +11,7 @@ public final class RabbitMQConnectionCreator {
 	public static Connection create(String host) {
 		final ConnectionFactory factory = new ConnectionFactory();
 		factory.setHost(host);
+		factory.setAutomaticRecoveryEnabled(true);
 		try {
 			return factory.newConnection();
 		} catch (Exception e) {

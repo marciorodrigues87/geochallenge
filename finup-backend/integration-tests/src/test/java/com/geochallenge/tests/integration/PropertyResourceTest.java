@@ -14,13 +14,9 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.junit.experimental.categories.Category;
-
-import com.geochallenge.tests.IntegrationTest;
 
 import io.restassured.RestAssured;
 
-@Category(IntegrationTest.class)
 public class PropertyResourceTest {
 
 	private static final String PROPERTIES_URI = "/properties";
@@ -34,12 +30,12 @@ public class PropertyResourceTest {
 	@Test
 	public void shouldNotCreateNullProperty() {
 		given()
-			.contentType(JSON)
-		.when()
-			.post(PROPERTIES_URI)
-		.then()
-			.statusCode(400)
-			.body(equalTo(asString("/property_null_body_response.json")));
+				.contentType(JSON)
+				.when()
+				.post(PROPERTIES_URI)
+				.then()
+				.statusCode(400)
+				.body(equalTo(asString("/property_null_body_response.json")));
 	}
 
 	@Test
@@ -50,64 +46,62 @@ public class PropertyResourceTest {
 	}
 
 	private String createProperty() {
-		return 
-			given()
+		return given()
 				.contentType(JSON)
 				.body(asString("/property_body_request.json"))
-			.when()
+				.when()
 				.post(PROPERTIES_URI)
-			.then()
+				.then()
 				.statusCode(200)
-			.extract()
+				.extract()
 				.body().asString();
 	}
 
 	@Test
 	public void shouldNotCreateInvalidProperty() {
 		given()
-			.contentType(JSON)
-			.body(asString("/property_invalid_request.json"))
-		.when()
-			.post(PROPERTIES_URI)
-		.then()
-			.statusCode(400)
-			.body(equalTo(asString("/property_invalid_response.json")));
+				.contentType(JSON)
+				.body(asString("/property_invalid_request.json"))
+				.when()
+				.post(PROPERTIES_URI)
+				.then()
+				.statusCode(400)
+				.body(equalTo(asString("/property_invalid_response.json")));
 	}
 
 	@Test
 	public void shouldRetrieveProperty() {
-		
+
 		final String createdProperty = createProperty();
 		final String id = from(createdProperty).getString("id");
-		
-		final String response = 
-				given()
-					.get(format("%s/{id}",PROPERTIES_URI), id)
+
+		final String response = given()
+				.get(format("%s/{id}", PROPERTIES_URI), id)
 				.then()
-					.statusCode(200)
+				.statusCode(200)
 				.extract()
-					.body().asString();
-		
+				.body().asString();
+
 		assertEquals(asStringReplacing("/property_ok_response.json", "<ID>", id), response);
 	}
 
 	@Test
 	public void shouldFilterProperties() {
-		
+
 		final String createdProperty1 = createProperty();
 		final String createdProperty2 = createProperty();
 		final String id1 = from(createdProperty1).getString("id");
 		final String id2 = from(createdProperty2).getString("id");
-		
+
 		given()
-			.queryParam("ax", "400")
-			.queryParam("ay", "800")
-			.queryParam("bx", "800")
-			.queryParam("by", "600")
-			.get(PROPERTIES_URI)
-		.then()
-			.statusCode(200)
-			.body(containsString(fieldId(id1)), containsString(fieldId(id2)));
+				.queryParam("ax", "400")
+				.queryParam("ay", "800")
+				.queryParam("bx", "800")
+				.queryParam("by", "600")
+				.get(PROPERTIES_URI)
+				.then()
+				.statusCode(200)
+				.body(containsString(fieldId(id1)), containsString(fieldId(id2)));
 	}
 
 	private String fieldId(final String id1) {
