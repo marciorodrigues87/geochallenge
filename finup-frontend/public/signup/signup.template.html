@@ -1,7 +1,7 @@
 		<!-- Signup Form -->
 			<form id="signup-form" ng-submit="signup()">
-				<input ng-model="model.email" type="email" name="email" id="email" placeholder="Email Address" required/>
+				<input ng-model="model.email" type="email" placeholder="Email Address" required/>
 				<input ng-disabled="pending" type="submit" value="Sign Up" />
-				<div ng-show="success" class="message visible success">Thank you!</div>
-				<div ng-show="error" class="message visible failure">Something went wrong. Please try again.</div>
+				<span ng-show="success" class="message visible success">Thank you!</span>
+				<span ng-show="error" class="message visible failure">Something went wrong. Please try again.</span>
 			</form>

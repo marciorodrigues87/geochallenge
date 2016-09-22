@@ -1,8 +1,9 @@
 		<!-- Survey Form -->
-			<form id="survey-form" method="post" action="#">
-				<input type="hidden" name="key" id="key"/>
-				<textarea name="expect" id="expect" placeholder="What do you expect from Finup?" required></textarea>
-				<textarea name="payment" id="payment" placeholder="Would you pay for it?" required></textarea>
-				<textarea name="need" id="need" placeholder="What do you really need?" required></textarea>
-			    <input type="submit" value="Send" />
+			<form id="survey-form" ng-submit="respond()">
+				<textarea ng-model="model.expect" placeholder="What do you expect from Finup?" required></textarea>
+				<textarea ng-model="model.payment" placeholder="Would you pay for it?" required></textarea>
+				<textarea ng-model="model.need" placeholder="What do you really need?" required></textarea>
+			    <input ng-disabled="pending" type="submit" value="Send" />
+			    <span ng-show="success" class="message visible success">Thank you!</span>
+				<span ng-show="error" class="message visible failure">Something went wrong. Please try again.</span>
 			</form>

@@ -4,7 +4,7 @@
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
-<html>
+<html ng-app="finupFrontEnd">
 	<head>
 		<title>Finup - financial control system</title>
 		<meta charset="utf-8" />
@@ -23,11 +23,8 @@
 				control, visibility and tips based on your lifestyle</p>
 			</header>
 
-		<!-- Signup Form -->
-			<form id="signup-form" method="post" action="#">
-				<input type="email" name="email" id="email" placeholder="Email Address" required/>
-				<input type="submit" value="Sign Up" />
-			</form>
+		<!-- View-->
+      		<div ng-view></div>
 
 		<!-- Footer -->
 			<footer id="footer">
@@ -43,9 +40,16 @@
 			</footer>
 
 		<!-- Scripts -->
-			<script src="assets/js/jquery-3.1.0.min.js"></script>
+			<script src="bower_components/angular/angular.js"></script>
+			<script src="bower_components/angular-route/angular-route.js"></script>
+			<script src="bower_components/angular-resource/angular-resource.js"></script>
+			<script src="finup.module.js"></script>
+			<script src="finup.config.js"></script>
+			<script src="signup/signup.module.js"></script>
+			<script src="signup/signup.component.js"></script>
+			<script src="survey/survey.module.js"></script>
+			<script src="survey/survey.component.js"></script>
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="assets/js/main.js"></script>
-			<script src="assets/js/index.js"></script>
 	</body>
 </html>

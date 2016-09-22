@@ -5,7 +5,6 @@ angular.
   config(['$locationProvider' ,'$routeProvider',
     function config($locationProvider, $routeProvider) {
       $locationProvider.hashPrefix('!');
-
       $routeProvider.
         when('/signup', {
           template: '<signup></signup>'
