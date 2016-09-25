@@ -5,7 +5,7 @@
 You will need the following dependencies:
 
 	npm
-	node
+	node6
 	bower
 	java8
 	maven3
@@ -18,7 +18,7 @@ You will need the following dependencies:
 
 Just run the command:
  
-	cd finup-backend && mvn clean install && cd ../finup-frontend/public && bower install --allow-root && cd ../.. && docker-compose up --build
+	export DOCKER_MACHINE_IP=$(docker-machine ip) && cd finup-backend && mvn clean install && cd ../finup-frontend/public && bower install --allow-root && cd ../.. && docker-compose up --build
 
 on project root dir.
 
@@ -30,7 +30,15 @@ To signup:
 	
 	http://$(docker-machine ip default):8081
 
+To survey respond:
+
+	http://$(docker-machine ip default):8081/#!/survey?key=57ddba9708813b0001b7ab97
+
+The key param is the subscription id on mongodb
+
 ## automated tests
+
+# backend
 
 After building and running, just run the following command:
 
