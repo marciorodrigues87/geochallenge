@@ -43,3 +43,9 @@ on project root dir.
 To see the application logs access this link:
 
 	http://$(docker-machine ip default):9292/index.html#/dashboard/file/logstash.json
+
+## demo
+
+The running demo of this code can be seen in this link:
+
+	http://ec2-54-187-136-187.us-west-2.compute.amazonaws.com:8081/
