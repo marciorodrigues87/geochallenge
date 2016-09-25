@@ -17,7 +17,7 @@ services:
       - broker:broker
       - log:log
     environment:
-      - geochallenge.survey.url=http://${DOCKER_MACHINE_IP}:8081/survey.html?key=%s
+      - geochallenge.survey.url=http://${DOCKER_MACHINE_IP}:8081/#!/survey?key=%s
   db:
    image: mongo:latest
    ports:
